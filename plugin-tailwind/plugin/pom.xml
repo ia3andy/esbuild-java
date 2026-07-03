@@ -44,6 +44,13 @@
                     <groupId>org.mvnpm.at.isaacs</groupId>
                     <artifactId>cliui</artifactId>
                 </exclusion>
+                <!-- typography declares a peer dep on old tailwindcss v3 ([3.0.0,)),
+                     which pulls a deep transitive chain (cosmiconfig -> import-fresh -> resolve-from)
+                     that fails to resolve on fresh builds. We use tailwindcss v4 via @tailwindcss/node. -->
+                <exclusion>
+                    <groupId>org.mvnpm</groupId>
+                    <artifactId>tailwindcss</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
